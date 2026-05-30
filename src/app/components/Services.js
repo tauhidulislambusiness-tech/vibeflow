@@ -106,7 +106,7 @@ export default function Services() {
   }, []);
 
   return (
-    <section id="services" className="section services" ref={sectionRef}>
+    <section id="services" className="section services services--light" ref={sectionRef}>
       <div className="container">
         {/* Header */}
         <div className="services__header">
