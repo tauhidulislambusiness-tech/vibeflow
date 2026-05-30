@@ -6,12 +6,15 @@ import Hero from './components/Hero';
 import Services from './components/Services';
 import Portfolio from './components/Portfolio';
 import Process from './components/Process';
+import AntiGravitySlider from './components/AntiGravitySlider';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import CursorTrail from './components/CursorTrail';
 
 export default function Home() {
   return (
     <>
+      <CursorTrail />
       <Navbar />
 
       <main>
@@ -22,6 +25,8 @@ export default function Home() {
         <Portfolio />
         <div className="section-divider" />
         <Process />
+        <div className="section-divider" />
+        <AntiGravitySlider />
         <div className="section-divider" />
         <Contact />
       </main>
