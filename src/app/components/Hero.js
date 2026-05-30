@@ -74,9 +74,10 @@ export default function Hero() {
 
   return (
     <section id="hero" className="hero" ref={sectionRef}>
-      {/* Background effects */}
-      <div className="hero__glow" />
-      <div className="hero__grid" />
+      {/* Background effects — three soft gradient orbs */}
+      <div className="hero__orb hero__orb--purple" />
+      <div className="hero__orb hero__orb--cyan" />
+      <div className="hero__orb hero__orb--pink" />
 
       <div className="hero__content">
         {/* Eyebrow */}
