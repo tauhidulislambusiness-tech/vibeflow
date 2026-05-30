@@ -10,11 +10,13 @@ import AntiGravitySlider from './components/AntiGravitySlider';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CursorTrail from './components/CursorTrail';
+import WaterRipple from './components/WaterRipple';
 
 export default function Home() {
   return (
     <>
       <CursorTrail />
+      <WaterRipple />
       <Navbar />
 
       <main>
