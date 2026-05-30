@@ -6,39 +6,39 @@ import { TrendingUp, Star, Globe } from 'lucide-react';
 const CASE_STUDIES = [
   {
     icon: TrendingUp,
-    category: 'Menu Design',
+    category: 'মেন্যু ডিজাইন',
     name: 'Avanti',
-    description: 'Chinese restaurant — Dhaka',
+    description: 'চাইনিজ রেস্টুরেন্ট — ঢাকা',
     problem:
-      'A generic, text-heavy menu that buried high-margin dishes and confused first-time guests. Zero verbal identity — the menu could belong to any restaurant.',
-    outcomeStat: '40%',
-    outcomeLabel: 'increase in high-margin orders',
+      'একটি সাধারণ, টেক্সট-ভারী মেন্যু যা হাই-মার্জিন ডিশগুলো লুকিয়ে রাখত এবং নতুন গেস্টদের বিভ্রান্ত করত। কোনো ভার্বাল আইডেন্টিটি ছিল না — মেন্যুটি যেকোনো রেস্টুরেন্টের হতে পারত।',
+    outcomeStat: '৪০%',
+    outcomeLabel: 'হাই-মার্জিন অর্ডার বৃদ্ধি',
     outcomeText:
-      'Complete menu overhaul with dish psychology, strategic placement, and storytelling copy that guides guests to premium experiences.',
+      'ডিশ সাইকোলজি, স্ট্র্যাটেজিক প্লেসমেন্ট এবং স্টোরিটেলিং কপি দিয়ে সম্পূর্ণ মেন্যু পুনর্গঠন যা গেস্টদের প্রিমিয়াম অভিজ্ঞতার দিকে গাইড করে।',
   },
   {
     icon: Star,
-    category: 'Brand Identity',
+    category: 'ব্র্যান্ড আইডেন্টিটি',
     name: 'Aroma',
-    description: 'Boutique café — lifestyle brand',
+    description: 'বুটিক ক্যাফে — লাইফস্টাইল ব্র্যান্ড',
     problem:
-      'No brand identity, inconsistent visuals, and zero social media presence. The café had great coffee but looked invisible online.',
-    outcomeStat: '3×',
-    outcomeLabel: 'social engagement growth',
+      'কোনো ব্র্যান্ড আইডেন্টিটি ছিল না, অসামঞ্জস্য ভিজুয়াল এবং সোশ্যাল মিডিয়ায় কোনো উপস্থিতি ছিল না। দুর্দান্ত কফি ছিল কিন্তু অনলাইনে অদৃশ্য ছিল।',
+    outcomeStat: '৩×',
+    outcomeLabel: 'সোশ্যাল এনগেজমেন্ট বৃদ্ধি',
     outcomeText:
-      'Premium repositioning with cinematic content, cohesive brand system, and a digital presence that turned casual visitors into loyal advocates.',
+      'সিনেমাটিক কনটেন্ট, সামঞ্জস্যপূর্ণ ব্র্যান্ড সিস্টেম এবং ডিজিটাল উপস্থিতি দিয়ে প্রিমিয়াম রিপজিশনিং যা সাধারণ ভিজিটরদের বিশ্বস্ত অনুরাগীতে পরিণত করে।',
   },
   {
     icon: Globe,
-    category: 'Digital Ecosystem',
+    category: 'ডিজিটাল ইকোসিস্টেম',
     name: 'Saffron',
-    description: 'Fine dining chain — multi-location',
+    description: 'ফাইন ডাইনিং চেইন — মাল্টি-লোকেশন',
     problem:
-      'Inconsistent multi-location branding, fragmented digital touchpoints, and no unified conversion strategy across three restaurant locations.',
-    outcomeStat: '60%',
-    outcomeLabel: 'inbound client growth',
+      'একাধিক লোকেশনে অসামঞ্জস্য ব্র্যান্ডিং, বিচ্ছিন্ন ডিজিটাল টাচপয়েন্ট এবং তিনটি রেস্টুরেন্ট লোকেশন জুড়ে কোনো ইউনিফাইড কনভার্সন স্ট্র্যাটেজি ছিল না।',
+    outcomeStat: '৬০%',
+    outcomeLabel: 'ইনবাউন্ড ক্লায়েন্ট বৃদ্ধি',
     outcomeText:
-      'Unified digital presence with a conversion engine — cohesive branding, centralized booking system, and performance-optimized web across all locations.',
+      'কনভার্সন ইঞ্জিন সহ ইউনিফাইড ডিজিটাল উপস্থিতি — সামঞ্জস্যপূর্ণ ব্র্যান্ডিং, কেন্দ্রীভূত বুকিং সিস্টেম এবং সব লোকেশনে পারফরম্যান্স-অপ্টিমাইজড ওয়েব।',
   },
 ];
 
@@ -105,15 +105,14 @@ export default function Portfolio() {
       <div className="container">
         {/* Header */}
         <div className="portfolio__header">
-          <div className="section__label">Case Studies</div>
+          <div className="section__label">কেস স্টাডি</div>
           <h2 className="section__title">
-            Results That
+            ফলাফল যা
             <br />
-            Speak Louder
+            জোরে কথা বলে
           </h2>
           <p className="section__subtitle">
-            Real transformations for real restaurants. Here&apos;s what happens when
-            strategy meets execution.
+            বাস্তব রেস্টুরেন্টের বাস্তব রূপান্তর। স্ট্র্যাটেজি এবং বাস্তবায়ন মিলে গেলে কী ঘটে দেখুন।
           </p>
         </div>
 
@@ -145,7 +144,7 @@ export default function Portfolio() {
 
                   <div className="portfolio-card__problem">
                     <span className="portfolio-card__problem-label">
-                      Challenge
+                      চ্যালেঞ্জ
                     </span>
                     <p className="portfolio-card__problem-text">
                       {study.problem}
@@ -154,7 +153,7 @@ export default function Portfolio() {
 
                   <div className="portfolio-card__outcome">
                     <span className="portfolio-card__outcome-label">
-                      Outcome
+                      ফলাফল
                     </span>
                     <p className="portfolio-card__outcome-text">
                       {study.outcomeText}

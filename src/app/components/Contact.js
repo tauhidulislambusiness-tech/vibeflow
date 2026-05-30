@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from 'react';
 import { Send, Mail, Globe, MessageSquare } from 'lucide-react';
 
 const INVESTMENT_OPTIONS = [
-  { value: '', label: 'Select your investment range' },
-  { value: 'premium', label: 'Premium Blueprint — $499 – $799' },
-  { value: 'elite', label: 'Elite Ecosystem — $899 – $1,299' },
-  { value: 'custom', label: 'Custom Legacy Scale — $1,299+' },
+  { value: '', label: 'আপনার বিনিয়োগ পরিসীমা নির্বাচন করুন' },
+  { value: 'premium', label: 'প্রিমিয়াম ব্লুপ্রিন্ট — $৪৯৯ – $৭৯৯' },
+  { value: 'elite', label: 'এলিট ইকোসিস্টেম — $৮৯৯ – $১,২৯৯' },
+  { value: 'custom', label: 'কাস্টম লেগেসি স্কেল — $১,২৯৯+' },
 ];
 
 export default function Contact() {
@@ -78,17 +78,17 @@ export default function Contact() {
         <div className="contact__inner">
           {/* Left — Info */}
           <div className="contact__info">
-            <div className="section__label">Get Started</div>
+            <div className="section__label">শুরু করুন</div>
             <h2 className="section__title">
-              Let&apos;s Build
+              আসুন কিছু
               <br />
-              Something Iconic
+              আইকনিক তৈরি করি
             </h2>
             <p className="contact__info-text">
-              This isn&apos;t a generic inquiry form — it&apos;s a pre-qualification
-              step. Tell us about your brand, your biggest bottleneck, and your
-              investment mindset. We&apos;ll respond within 24 hours with a
-              tailored game plan.
+              এটি কোনো সাধারণ ফর্ম নয় — এটি একটি প্রি-কোয়ালিফিকেশন ধাপ। আপনার
+              ব্র্যান্ড, আপনার সবচেয়ে বড় সমস্যা এবং আপনার বিনিয়োগ মানসিকতা
+              সম্পর্কে বলুন। আমরা ২৪ ঘণ্টার মধ্যে একটি কাস্টম গেম প্ল্যান নিয়ে
+              উত্তর দেব।
             </p>
 
             <div className="contact__details">
@@ -102,7 +102,7 @@ export default function Contact() {
               </div>
               <div className="contact__detail">
                 <MessageSquare size={16} className="contact__detail-icon" />
-                <span>WhatsApp — Available 10 AM – 8 PM</span>
+                <span>হোয়াটসঅ্যাপ — সকাল ১০টা – রাত ৮টা</span>
               </div>
             </div>
           </div>
@@ -131,11 +131,11 @@ export default function Contact() {
                     fontSize: 'var(--fs-h3)',
                   }}
                 >
-                  Message Sent
+                  বার্তা পাঠানো হয়েছে
                 </h3>
                 <p style={{ color: 'var(--color-text-secondary)' }}>
-                  We&apos;ll get back to you within 24 hours with a tailored
-                  strategy.
+                  আমরা ২৪ ঘণ্টার মধ্যে একটি কাস্টম স্ট্র্যাটেজি নিয়ে আপনার সাথে
+                  যোগাযোগ করব।
                 </p>
               </div>
             ) : (
@@ -143,14 +143,14 @@ export default function Contact() {
                 {/* Name */}
                 <div className="form-group">
                   <label className="form-group__label" htmlFor="name">
-                    Your Name
+                    আপনার নাম
                   </label>
                   <input
                     id="name"
                     name="name"
                     type="text"
                     className="form-group__input"
-                    placeholder="e.g. Rafiq Ahmed"
+                    placeholder="যেমন: রফিক আহমেদ"
                     value={formData.name}
                     onChange={handleChange}
                     required
@@ -160,14 +160,14 @@ export default function Contact() {
                 {/* Website / Social */}
                 <div className="form-group">
                   <label className="form-group__label" htmlFor="website">
-                    Business Website or Social Link
+                    ব্যবসার ওয়েবসাইট বা সোশ্যাল লিংক
                   </label>
                   <input
                     id="website"
                     name="website"
                     type="url"
                     className="form-group__input"
-                    placeholder="https://your-restaurant.com or @handle"
+                    placeholder="https://your-restaurant.com অথবা @handle"
                     value={formData.website}
                     onChange={handleChange}
                   />
@@ -176,13 +176,13 @@ export default function Contact() {
                 {/* Bottleneck */}
                 <div className="form-group">
                   <label className="form-group__label" htmlFor="bottleneck">
-                    Main bottleneck holding your brand back
+                    আপনার ব্র্যান্ডের প্রধান বাধা
                   </label>
                   <textarea
                     id="bottleneck"
                     name="bottleneck"
                     className="form-group__textarea"
-                    placeholder="Tell us what's not working — menu, branding, online presence, operations..."
+                    placeholder="কী কাজ করছে না বলুন — মেন্যু, ব্র্যান্ডিং, অনলাইন উপস্থিতি, অপারেশন..."
                     value={formData.bottleneck}
                     onChange={handleChange}
                     required
@@ -192,7 +192,7 @@ export default function Contact() {
                 {/* Investment Range */}
                 <div className="form-group">
                   <label className="form-group__label" htmlFor="investment">
-                    Investment Range
+                    বিনিয়োগ পরিসীমা
                   </label>
                   <select
                     id="investment"
@@ -213,7 +213,7 @@ export default function Contact() {
                 {/* Submit */}
                 <button type="submit" className="btn btn--primary contact__submit">
                   <Send size={16} />
-                  Submit Pre-Qualification
+                  প্রি-কোয়ালিফিকেশন জমা দিন
                 </button>
               </form>
             )}

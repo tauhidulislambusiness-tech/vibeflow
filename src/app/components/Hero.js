@@ -90,33 +90,31 @@ export default function Hero() {
         {/* Headline */}
         <h1 className="hero__headline">
           <span className="hero__headline-line">
-            <span className="hero__headline-word">Out&nbsp;</span>
-            <span className="hero__headline-word">of&nbsp;</span>
-            <span className="hero__headline-word">Nowhere.&nbsp;</span>
+            <span className="hero__headline-word">কল্পনার&nbsp;</span>
+            <span className="hero__headline-word">বাইরে।&nbsp;</span>
           </span>
           <span className="hero__headline-line">
-            <span className="hero__headline-word">Into&nbsp;</span>
-            <span className="hero__headline-word">The&nbsp;</span>
             <span className="hero__headline-word">
-              <em>Flow.</em>
+              <em>প্রবাহের</em>&nbsp;
             </span>
+            <span className="hero__headline-word">মধ্যে।</span>
           </span>
         </h1>
 
         {/* Sub */}
         <p className="hero__sub">
-          We don&apos;t chase algorithms; we curate digital legacies. Strategy,
-          design, and technology — fused into one cinematic experience.
+          আমরা অ্যালগরিদম চেজ করি না; আমরা ডিজিটাল লেগেসি তৈরি করি। স্ট্র্যাটেজি,
+          ডিজাইন এবং প্রযুক্তি — একটি সিনেমাটিক অভিজ্ঞতায় মিশ্রিত।
         </p>
 
         {/* CTAs */}
         <div className="hero__actions">
           <a href="#contact" className="btn btn--primary" onClick={scrollToServices}>
-            See Our Work
+            আমাদের কাজ দেখুন
             <ArrowRight size={16} />
           </a>
           <a href="#services" className="btn btn--outline" onClick={scrollToServices}>
-            Explore Services
+            সেবাসমূহ দেখুন
           </a>
         </div>
       </div>

@@ -7,30 +7,30 @@ const STEPS = [
   {
     icon: Search,
     number: '01',
-    title: 'Discover',
+    title: 'আবিষ্কার',
     description:
-      'Brand audit & strategy alignment — we dissect your market position, competitors, and untapped opportunities before writing a single word.',
+      'ব্র্যান্ড অডিট ও স্ট্র্যাটেজি অ্যালাইনমেন্ট — একটি শব্দ লেখার আগে আমরা আপনার মার্কেট পজিশন, প্রতিযোগী এবং অব্যবহৃত সুযোগগুলো বিশ্লেষণ করি।',
   },
   {
     icon: PenTool,
     number: '02',
-    title: 'Design',
+    title: 'ডিজাইন',
     description:
-      'Narrative copywriting & visual engineering — every pixel and phrase is crafted to convert, compel, and leave a lasting impression.',
+      'ন্যারেটিভ কপিরাইটিং ও ভিজুয়াল ইঞ্জিনিয়ারিং — প্রতিটি পিক্সেল এবং বাক্য কনভার্ট করতে, প্রভাবিত করতে এবং স্থায়ী ছাপ ফেলতে তৈরি।',
   },
   {
     icon: Rocket,
     number: '03',
-    title: 'Deploy',
+    title: 'ডেপ্লয়',
     description:
-      'Production launch across all touchpoints — print, digital, social, in-venue. We ship fast, we ship polished, we ship complete.',
+      'সব টাচপয়েন্টে প্রোডাকশন লঞ্চ — প্রিন্ট, ডিজিটাল, সোশ্যাল, ভেন্যু। আমরা দ্রুত শিপ করি, পলিশড শিপ করি, সম্পূর্ণ শিপ করি।',
   },
   {
     icon: BarChart3,
     number: '04',
-    title: 'Optimize',
+    title: 'অপ্টিমাইজ',
     description:
-      '30-day feedback loops & data-driven refinement — real metrics, real adjustments, compounding results every cycle.',
+      '৩০ দিনের ফিডব্যাক লুপ ও ডেটা-ড্রিভেন রিফাইনমেন্ট — বাস্তব মেট্রিক্স, বাস্তব অ্যাডজাস্টমেন্ট, প্রতিটি সাইকেলে ক্রমবর্ধমান ফলাফল।',
   },
 ];
 
@@ -106,15 +106,14 @@ export default function Process() {
       <div className="container">
         {/* Header */}
         <div className="process__header">
-          <div className="section__label">How We Work</div>
+          <div className="section__label">আমরা কীভাবে কাজ করি</div>
           <h2 className="section__title">
-            From Vision
+            দৃষ্টি থেকে
             <br />
-            to Velocity
+            গতিতে
           </h2>
           <p className="section__subtitle">
-            A proven four-phase system that takes brands from invisible to
-            inevitable — with measurable milestones at every stage.
+            একটি প্রমাণিত চার-পর্যায়ের সিস্টেম যা ব্র্যান্ডকে অদৃশ্য থেকে অপরিহার্যে পরিণত করে — প্রতিটি পর্যায়ে পরিমাপযোগ্য মাইলস্টোন সহ।
           </p>
         </div>
 

@@ -1,10 +1,10 @@
 import { Zap } from 'lucide-react';
 
 const FOOTER_LINKS = [
-  { label: 'Services', href: '#services' },
-  { label: 'Portfolio', href: '#portfolio' },
-  { label: 'Process', href: '#process' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'সেবাসমূহ', href: '#services' },
+  { label: 'পোর্টফোলিও', href: '#portfolio' },
+  { label: 'প্রক্রিয়া', href: '#process' },
+  { label: 'যোগাযোগ', href: '#contact' },
 ];
 
 export default function Footer() {
@@ -18,9 +18,9 @@ export default function Footer() {
               VIBE&nbsp;<span className="footer__logo-accent">FLOW</span>
             </div>
             <span className="footer__copy">
-              VIBE FLOW © {new Date().getFullYear()}. All Rights Reserved.
+              ভাইব ফ্লো © {new Date().getFullYear()}। সর্বস্বত্ব সংরক্ষিত।
             </span>
-            <span className="footer__tagline">Shift the Perspective.</span>
+            <span className="footer__tagline">দৃষ্টিভঙ্গি বদলে দিন।</span>
           </div>
 
           {/* Links */}

@@ -7,34 +7,34 @@ const SERVICES = [
   {
     icon: BookOpen,
     number: '01',
-    title: 'The Storytelling Menu',
+    title: 'স্টোরিটেলিং মেন্যু',
     description:
-      'We engineer menus that sell — blending verbal identity, dish psychology, and visual hierarchy to guide your guests toward high-margin experiences without a single hard sell.',
-    tags: ['Menu Psychology', 'Verbal Identity', 'Print & Digital'],
+      'আমরা এমন মেন্যু তৈরি করি যা বিক্রি করে — ভার্বাল আইডেন্টিটি, ডিশ সাইকোলজি এবং ভিজুয়াল হায়ারার্কি মিশিয়ে আপনার গেস্টদের হাই-মার্জিন অভিজ্ঞতার দিকে গাইড করি কোনো হার্ড সেল ছাড়াই।',
+    tags: ['মেন্যু সাইকোলজি', 'ভার্বাল আইডেন্টিটি', 'প্রিন্ট ও ডিজিটাল'],
   },
   {
     icon: Cloud,
     number: '02',
-    title: 'Vibeflow SaaS',
+    title: 'ভাইবফ্লো SaaS',
     description:
-      'Cloud-native POS, Kitchen Display Systems, and real-time analytics — built for restaurants that refuse to operate in the dark. One dashboard, every insight.',
-    tags: ['Cloud POS', 'KDS', 'Analytics Dashboard'],
+      'ক্লাউড-নেটিভ POS, কিচেন ডিসপ্লে সিস্টেম এবং রিয়েল-টাইম অ্যানালিটিক্স — যেসব রেস্টুরেন্ট অন্ধকারে চলতে অস্বীকার করে তাদের জন্য তৈরি। একটি ড্যাশবোর্ড, সব তথ্য।',
+    tags: ['ক্লাউড POS', 'KDS', 'অ্যানালিটিক্স ড্যাশবোর্ড'],
   },
   {
     icon: Clapperboard,
     number: '03',
-    title: 'Cinematic Brand',
+    title: 'সিনেমাটিক ব্র্যান্ড',
     description:
-      '4K cinematic media production, premium web experiences, and visual systems that make your brand impossible to scroll past. We don\'t do templates.',
-    tags: ['4K Video', 'Web Design', 'Brand Systems'],
+      '4K সিনেমাটিক মিডিয়া প্রোডাকশন, প্রিমিয়াম ওয়েব এক্সপেরিয়েন্স এবং ভিজুয়াল সিস্টেম যা আপনার ব্র্যান্ডকে স্ক্রল করে পেরিয়ে যাওয়া অসম্ভব করে তোলে। আমরা টেমপ্লেট ব্যবহার করি না।',
+    tags: ['4K ভিডিও', 'ওয়েব ডিজাইন', 'ব্র্যান্ড সিস্টেম'],
   },
   {
     icon: Calculator,
     number: '04',
-    title: 'Smart Bookkeeping',
+    title: 'স্মার্ট বুককিপিং',
     description:
-      'Restaurant-specific financial intelligence — from daily P&L tracking to tax-ready reports. We turn your numbers into narratives that drive smarter decisions.',
-    tags: ['P&L Tracking', 'Tax Prep', 'Financial Reports'],
+      'রেস্টুরেন্ট-স্পেসিফিক ফাইন্যান্সিয়াল ইন্টেলিজেন্স — দৈনিক P&L ট্র্যাকিং থেকে ট্যাক্স-রেডি রিপোর্ট পর্যন্ত। আমরা আপনার সংখ্যাগুলোকে এমন গল্পে রূপান্তর করি যা স্মার্ট সিদ্ধান্ত নিতে সাহায্য করে।',
+    tags: ['P&L ট্র্যাকিং', 'ট্যাক্স প্রস্তুতি', 'আর্থিক রিপোর্ট'],
   },
 ];
 
@@ -110,15 +110,14 @@ export default function Services() {
       <div className="container">
         {/* Header */}
         <div className="services__header">
-          <div className="section__label">What We Build</div>
+          <div className="section__label">আমরা কী তৈরি করি</div>
           <h2 className="section__title">
-            Four Pillars of
+            রেস্টুরেন্ট
             <br />
-            Restaurant Dominance
+            আধিপত্যের চার স্তম্ভ
           </h2>
           <p className="section__subtitle">
-            Every service is designed to compound — menu psychology feeds brand
-            strategy, SaaS captures data, and bookkeeping closes the loop.
+            প্রতিটি সেবা পরস্পর সংযুক্ত — মেন্যু সাইকোলজি ব্র্যান্ড স্ট্র্যাটেজি গড়ে তোলে, SaaS ডেটা সংগ্রহ করে, এবং বুককিপিং পুরো প্রক্রিয়া সম্পূর্ণ করে।
           </p>
         </div>
 

@@ -4,10 +4,10 @@ import { useEffect, useState } from 'react';
 import { Zap } from 'lucide-react';
 
 const NAV_LINKS = [
-  { label: 'Services', href: '#services' },
-  { label: 'Portfolio', href: '#portfolio' },
-  { label: 'Process', href: '#process' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'সেবাসমূহ', href: '#services' },
+  { label: 'পোর্টফোলিও', href: '#portfolio' },
+  { label: 'প্রক্রিয়া', href: '#process' },
+  { label: 'যোগাযোগ', href: '#contact' },
 ];
 
 export default function Navbar() {
@@ -60,7 +60,7 @@ export default function Navbar() {
             className="btn btn--primary navbar__cta"
             onClick={(e) => handleNavClick(e, '#contact')}
           >
-            Start a Project
+            প্রজেক্ট শুরু করুন
           </a>
         </div>
 
@@ -93,7 +93,7 @@ export default function Navbar() {
           className="btn btn--primary"
           onClick={(e) => handleNavClick(e, '#contact')}
         >
-          Start a Project
+          প্রজেক্ট শুরু করুন
         </a>
       </div>
     </nav>
