@@ -1,46 +1,111 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import { BookOpen, Cloud, Clapperboard, Calculator } from 'lucide-react';
+import { useEffect, useRef, useState, useCallback } from 'react';
+import { UtensilsCrossed, Heart, Megaphone, Truck, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const SERVICES = [
   {
-    icon: BookOpen,
+    icon: UtensilsCrossed,
     number: '01',
-    title: 'স্টোরিটেলিং মেন্যু',
-    description:
-      'আমরা এমন মেন্যু তৈরি করি যা বিক্রি করে — ভার্বাল আইডেন্টিটি, ডিশ সাইকোলজি এবং ভিজুয়াল হায়ারার্কি মিশিয়ে আপনার গেস্টদের হাই-মার্জিন অভিজ্ঞতার দিকে গাইড করি কোনো হার্ড সেল ছাড়াই।',
-    tags: ['মেন্যু সাইকোলজি', 'ভার্বাল আইডেন্টিটি', 'প্রিন্ট ও ডিজিটাল'],
+    title: 'খাবারের মান',
+    subtitle: 'Food Quality',
+    points: [
+      'সুস্বাদু ও ধারাবাহিক মানের খাবার',
+      'তাজা উপকরণ ব্যবহার',
+      'ইউনিক সিগনেচার মেনু',
+    ],
+    accent: '#7c5cff',
   },
   {
-    icon: Cloud,
+    icon: Heart,
     number: '02',
-    title: 'ভাইবফ্লো SaaS',
-    description:
-      'ক্লাউড-নেটিভ POS, কিচেন ডিসপ্লে সিস্টেম এবং রিয়েল-টাইম অ্যানালিটিক্স — যেসব রেস্টুরেন্ট অন্ধকারে চলতে অস্বীকার করে তাদের জন্য তৈরি। একটি ড্যাশবোর্ড, সব তথ্য।',
-    tags: ['ক্লাউড POS', 'KDS', 'অ্যানালিটিক্স ড্যাশবোর্ড'],
+    title: 'গ্রাহক অভিজ্ঞতা',
+    subtitle: 'Customer Experience',
+    points: [
+      'দ্রুত ও ভদ্র সার্ভিস',
+      'পরিচ্ছন্ন পরিবেশ',
+      'আরামদায়ক বসার ব্যবস্থা',
+      'গ্রাহকের অভিযোগ দ্রুত সমাধান',
+    ],
+    accent: '#00d4ff',
   },
   {
-    icon: Clapperboard,
+    icon: Megaphone,
     number: '03',
-    title: 'সিনেমাটিক ব্র্যান্ড',
-    description:
-      '4K সিনেমাটিক মিডিয়া প্রোডাকশন, প্রিমিয়াম ওয়েব এক্সপেরিয়েন্স এবং ভিজুয়াল সিস্টেম যা আপনার ব্র্যান্ডকে স্ক্রল করে পেরিয়ে যাওয়া অসম্ভব করে তোলে। আমরা টেমপ্লেট ব্যবহার করি না।',
-    tags: ['4K ভিডিও', 'ওয়েব ডিজাইন', 'ব্র্যান্ড সিস্টেম'],
+    title: 'ব্র্যান্ড ও মার্কেটিং',
+    subtitle: 'Brand & Marketing',
+    points: [
+      'শক্তিশালী সামাজিক যোগাযোগমাধ্যম উপস্থিতি',
+      'নিয়মিত কনটেন্ট ও বিজ্ঞাপন',
+      'রিভিউ ও রেপুটেশন ম্যানেজমেন্ট',
+      'লোকাল ব্র্যান্ড হিসেবে পরিচিতি তৈরি',
+    ],
+    accent: '#ff6b9d',
   },
   {
-    icon: Calculator,
+    icon: Truck,
     number: '04',
-    title: 'স্মার্ট বুককিপিং',
-    description:
-      'রেস্টুরেন্ট-স্পেসিফিক ফাইন্যান্সিয়াল ইন্টেলিজেন্স — দৈনিক P&L ট্র্যাকিং থেকে ট্যাক্স-রেডি রিপোর্ট পর্যন্ত। আমরা আপনার সংখ্যাগুলোকে এমন গল্পে রূপান্তর করি যা স্মার্ট সিদ্ধান্ত নিতে সাহায্য করে।',
-    tags: ['P&L ট্র্যাকিং', 'ট্যাক্স প্রস্তুতি', 'আর্থিক রিপোর্ট'],
+    title: 'অপারেশন ও ডেলিভারি',
+    subtitle: 'Operations & Delivery',
+    points: [
+      'দ্রুত খাবার প্রস্তুত',
+      'কার্যকর স্টাফ ম্যানেজমেন্ট',
+      'নির্ভরযোগ্য ডেলিভারি সিস্টেম',
+      'খরচ নিয়ন্ত্রণ ও লাভজনকতা নিশ্চিত করা',
+    ],
+    accent: '#ffa751',
   },
 ];
 
 export default function Services() {
   const sectionRef = useRef(null);
+  const [active, setActive] = useState(0);
+  const [animState, setAnimState] = useState('idle'); // idle | exit | enter
+  const [direction, setDirection] = useState(1);
+  const autoRef = useRef(null);
+  const pausedRef = useRef(false);
 
+  const goTo = useCallback(
+    (idx) => {
+      if (animState !== 'idle') return;
+      const nextIdx = (idx + SERVICES.length) % SERVICES.length;
+      if (nextIdx === active) return;
+      setDirection(nextIdx > active ? 1 : -1);
+      setAnimState('exit');
+      setTimeout(() => {
+        setActive(nextIdx);
+        setAnimState('enter');
+        setTimeout(() => setAnimState('idle'), 600);
+      }, 350);
+    },
+    [active, animState]
+  );
+
+  const next = useCallback(() => goTo(active + 1), [active, goTo]);
+  const prev = useCallback(() => goTo(active - 1), [active, goTo]);
+
+  // Auto-play
+  useEffect(() => {
+    const start = () => {
+      autoRef.current = setInterval(() => {
+        if (!pausedRef.current) next();
+      }, 5000);
+    };
+    start();
+    return () => clearInterval(autoRef.current);
+  }, [next]);
+
+  // Keyboard
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [next, prev]);
+
+  // GSAP header reveal
   useEffect(() => {
     let ctx;
     const init = async () => {
@@ -49,64 +114,45 @@ export default function Services() {
       gsap.registerPlugin(ScrollTrigger);
 
       ctx = gsap.context(() => {
-        // Header reveal
         gsap.from('.services__header .section__label', {
-          scrollTrigger: {
-            trigger: '.services__header',
-            start: 'top 85%',
-            toggleActions: 'play none none none',
-          },
-          y: 20,
-          opacity: 0,
-          duration: 0.6,
+          scrollTrigger: { trigger: '.services__header', start: 'top 85%', toggleActions: 'play none none none' },
+          y: 20, opacity: 0, duration: 0.6,
         });
-
         gsap.from('.services__header .section__title', {
-          scrollTrigger: {
-            trigger: '.services__header',
-            start: 'top 85%',
-            toggleActions: 'play none none none',
-          },
-          y: 30,
-          opacity: 0,
-          duration: 0.8,
-          delay: 0.15,
+          scrollTrigger: { trigger: '.services__header', start: 'top 85%', toggleActions: 'play none none none' },
+          y: 30, opacity: 0, duration: 0.8, delay: 0.15,
         });
-
         gsap.from('.services__header .section__subtitle', {
-          scrollTrigger: {
-            trigger: '.services__header',
-            start: 'top 85%',
-            toggleActions: 'play none none none',
-          },
-          y: 20,
-          opacity: 0,
-          duration: 0.7,
-          delay: 0.3,
+          scrollTrigger: { trigger: '.services__header', start: 'top 85%', toggleActions: 'play none none none' },
+          y: 20, opacity: 0, duration: 0.7, delay: 0.3,
         });
-
-        // Staggered card reveals
-        gsap.from('.service-card', {
-          scrollTrigger: {
-            trigger: '.services__grid',
-            start: 'top 85%',
-            toggleActions: 'play none none none',
-          },
-          y: 60,
-          opacity: 0,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: 'power3.out',
+        gsap.from('.svc-slider', {
+          scrollTrigger: { trigger: '.svc-slider', start: 'top 88%', toggleActions: 'play none none none' },
+          y: 60, opacity: 0, duration: 0.9, ease: 'power3.out',
         });
       }, sectionRef);
     };
-
     init();
     return () => ctx && ctx.revert();
   }, []);
 
+  const current = SERVICES[active];
+  const Icon = current.icon;
+
+  const cardClass = `svc-slider__card ${
+    animState === 'exit' ? 'svc-slider__card--exit' :
+    animState === 'enter' ? 'svc-slider__card--enter' :
+    'svc-slider__card--idle'
+  }`;
+
   return (
-    <section id="services" className="section services services--light" ref={sectionRef}>
+    <section
+      id="services"
+      className="section services services--light"
+      ref={sectionRef}
+      onMouseEnter={() => (pausedRef.current = true)}
+      onMouseLeave={() => (pausedRef.current = false)}
+    >
       <div className="container">
         {/* Header */}
         <div className="services__header">
@@ -117,30 +163,88 @@ export default function Services() {
             আধিপত্যের চার স্তম্ভ
           </h2>
           <p className="section__subtitle">
-            প্রতিটি সেবা পরস্পর সংযুক্ত — মেন্যু সাইকোলজি ব্র্যান্ড স্ট্র্যাটেজি গড়ে তোলে, SaaS ডেটা সংগ্রহ করে, এবং বুককিপিং পুরো প্রক্রিয়া সম্পূর্ণ করে।
+            রেস্টুরেন্টে বাজারে আধিপত্য গড়ে তুলতে চারটি প্রধান স্তম্ভ — খাবারের মান, গ্রাহক অভিজ্ঞতা, ব্র্যান্ডিং এবং অপারেশন।
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="services__grid">
-          {SERVICES.map((service) => {
-            const Icon = service.icon;
-            return (
-              <div key={service.number} className="glass-card service-card">
-                <div className="service-card__icon">
-                  <Icon size={24} strokeWidth={1.5} />
+        {/* Slider */}
+        <div className="svc-slider">
+          {/* Left Arrow */}
+          <button
+            className="svc-slider__nav svc-slider__nav--prev"
+            onClick={prev}
+            aria-label="আগের স্তম্ভ"
+          >
+            <ChevronLeft size={22} />
+          </button>
+
+          {/* Card */}
+          <div className="svc-slider__stage">
+            <div className={cardClass} key={active}>
+              {/* Card Top — Icon + Number */}
+              <div className="svc-slider__card-top">
+                <div className="svc-slider__icon" style={{ borderColor: `${current.accent}30`, background: `${current.accent}10` }}>
+                  <Icon size={28} strokeWidth={1.5} style={{ color: current.accent }} />
                 </div>
-                <span className="service-card__number">{service.number}</span>
-                <h3 className="service-card__title">{service.title}</h3>
-                <p className="service-card__desc">{service.description}</p>
-                <div className="service-card__tags">
-                  {service.tags.map((tag) => (
-                    <span key={tag} className="service-card__tag">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                <span className="svc-slider__number">{current.number}</span>
               </div>
+
+              {/* Title */}
+              <h3 className="svc-slider__title">{current.title}</h3>
+              <span className="svc-slider__subtitle">{current.subtitle}</span>
+
+              {/* Points */}
+              <ul className="svc-slider__points">
+                {current.points.map((point, i) => (
+                  <li key={i} className="svc-slider__point">
+                    <span className="svc-slider__bullet" style={{ background: current.accent }} />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+
+              {/* Accent bar */}
+              <div className="svc-slider__accent-bar" style={{ background: `linear-gradient(90deg, ${current.accent}, ${current.accent}40)` }} />
+            </div>
+          </div>
+
+          {/* Right Arrow */}
+          <button
+            className="svc-slider__nav svc-slider__nav--next"
+            onClick={next}
+            aria-label="পরের স্তম্ভ"
+          >
+            <ChevronRight size={22} />
+          </button>
+        </div>
+
+        {/* Dots */}
+        <div className="svc-slider__dots">
+          {SERVICES.map((_, i) => (
+            <button
+              key={i}
+              className={`svc-slider__dot ${i === active ? 'svc-slider__dot--active' : ''}`}
+              onClick={() => goTo(i)}
+              aria-label={`স্তম্ভ ${i + 1}`}
+              style={i === active ? { background: SERVICES[i].accent } : {}}
+            />
+          ))}
+        </div>
+
+        {/* Mini preview cards */}
+        <div className="svc-slider__previews">
+          {SERVICES.map((svc, i) => {
+            const PrevIcon = svc.icon;
+            return (
+              <button
+                key={i}
+                className={`svc-slider__preview ${i === active ? 'svc-slider__preview--active' : ''}`}
+                onClick={() => goTo(i)}
+                style={i === active ? { borderColor: svc.accent } : {}}
+              >
+                <PrevIcon size={18} strokeWidth={1.5} style={{ color: i === active ? svc.accent : '#8892b0' }} />
+                <span className="svc-slider__preview-title">{svc.title}</span>
+              </button>
             );
           })}
         </div>
